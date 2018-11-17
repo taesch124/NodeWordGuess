@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/taesch124/NodeWordGuess/issues"
   },
-  "homepage": "https://github.com/taesch124/NodeWordGuess#readme"
+  "homepage": "https://github.com/taesch124/NodeWordGuess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.0"
+  }
 }

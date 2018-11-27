@@ -1,8 +1,11 @@
 const Word = require('./word');
 let wordList = [];
 
-wordList.push(new Word('tomato'));
-wordList.push(new Word('hello world'));
+const possibleGames = ["The Legend of Zelda", "Halo", "Prince of Persia", "Super Mario", "Fallout", "Bioshock", "God of War", "Shadow of the Colossus", "Final Fantasy", "Grand Theft Auto", "Metroid", "Mortal Kombat", "Mass Effect", "Diablo", "Resident Evil", "Tomb Raider", "Assassins Creed", "Far Cry", "Warcraft"];
+
+for (let i = 0; i < possibleGames.length; i++) {
+    wordList.push(new Word(possibleGames[i]));
+}
 
 
 let getRandomWord = function() {

@@ -44,6 +44,23 @@ function startGame() {
     guessLetter();
 }
 
+function playAgain() {
+    Inquirer.prompt([
+        {
+            type: 'confirm',
+            message: 'Play again?',
+            name: 'playAgain'
+        }
+    ])
+    .then(answers => {
+        if(answers.playAgain) {
+            startGame();
+        } else {
+            return;
+        }
+    });
+}
+
 function guessLetter() {
     Inquirer.prompt([
         {
@@ -78,10 +95,11 @@ function checkGuess(answers) {
     console.log(currentWord.getWord());
 
     if(!currentWord.getWord().includes('_')) {
-        console.log('You win! Next word.');
-        startGame();
+        console.log('You win! ');
+        playAgain();
     } else if(currentWord.getWord().includes('_') && guessesRemaining <= 0) {
-        console.log('You Lose! Try again.');
+        console.log('You Lose!');
+        playAgain();
     } else {
         guessLetter();
     }

@@ -81,21 +81,6 @@ function guessLetter() {
     .then(checkGuess);
 }
 
-function newGamePrompt() {
-    Inquirer.prompt([
-        {
-            type: 'confirm',
-            message: 'Do you want to play again?',
-            name: 'playAgain'
-        }
-    ])
-    .then(answers => {
-        if (answers.playAgain) {
-            startGame();
-        }
-    })
-}
-
 function checkGuess(answers) {
     if (answers.guessedLetter === '!'){
         return;
@@ -113,10 +98,10 @@ function checkGuess(answers) {
     console.log(currentWord.getWord());
 
     if(!currentWord.getWord().includes('_')) {
-        console.log('You win! ');
+        console.log('YOU WIN!!'.green);
         playAgain();
     } else if(currentWord.getWord().includes('_') && guessesRemaining <= 0) {
-        console.log('You Lose!');
+        console.log('YOU LOSE!!'.red);
         playAgain();
     } else {
         guessLetter();
